@@ -1,4 +1,3 @@
-
 /* récupération du package http de node.js */
 const http = require('http');
 
@@ -17,7 +16,7 @@ const normalizePort = val => {
   }
   return false;
 };
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /* fonction errorHandler cherche et gère les erreurs */
@@ -51,5 +50,5 @@ server.on('listening', () => {
   console.log('Listening on ' + bind);
 });
 
-/* on configure le serveur sur le port 3000 par défaut */ 
+/* on configure le serveur sur le port 3000 par défaut */
 server.listen(port);
