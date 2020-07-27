@@ -2,12 +2,15 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const path = require('path');
+// recuperation de Helmet (sécurise les appli Express en définissant divers en-têtes HTTP)//
+const helmet = require('helmet');
+const cors = require('cors');
+
 
 
 const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
-
+const path = require('path');
 
 mongoose.connect('mongodb+srv://NewUser:tTlVrc8wgzpA2MMh@cluster0-wxfsq.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -24,12 +27,17 @@ app.use((req, res, next) => {
   next();
 });
 
+
 /* .json - méthode de l'objet bodyParser qui transforme le corps de la requête en objet JS*/
 app.use(bodyParser.json());
-app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.use(helmet());
+app.use(cors());
+
+//  ENDPOINTS CHEMIN D'ACCES //
 app.use('/api/auth', userRoutes);
 app.use('/api/sauces', sauceRoutes);
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 
 module.exports = app;
