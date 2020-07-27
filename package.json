@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/EkaterinaBobkova/OCProject6#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.25"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.25",
+    "mongoose-unique-validator": "^2.0.3",
+    "multer": "^1.4.2"
   }
 }

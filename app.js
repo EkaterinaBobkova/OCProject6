@@ -2,8 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
 
+
+const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
+
 
 mongoose.connect('mongodb+srv://NewUser:tTlVrc8wgzpA2MMh@cluster0-wxfsq.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -22,7 +26,10 @@ app.use((req, res, next) => {
 
 /* .json - méthode de l'objet bodyParser qui transforme le corps de la requête en objet JS*/
 app.use(bodyParser.json());
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.use('/api/auth', userRoutes);
 app.use('/api/sauces', sauceRoutes);
+
 
 module.exports = app;
