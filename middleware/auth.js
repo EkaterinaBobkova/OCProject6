@@ -1,3 +1,4 @@
+//on récupère un jwt pour vérifier les tokens//
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {

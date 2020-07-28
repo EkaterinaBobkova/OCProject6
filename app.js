@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-// recuperation de Helmet (sécurise les appli Express en définissant divers en-têtes HTTP)//
+// recuperation de Helmet (sécurise les appli Express en définissant divers en-têtes HTTPP, protège contre les failles XSS//
 const helmet = require('helmet');
 const cors = require('cors');
+//prevent injections//
+const sanitizer = require("express-mongo-sanitize");
 
 
 
@@ -33,6 +35,7 @@ app.use(bodyParser.json());
 
 app.use(helmet());
 app.use(cors());
+app.use(sanitizer());
 
 //  ENDPOINTS CHEMIN D'ACCES //
 app.use('/api/auth', userRoutes);

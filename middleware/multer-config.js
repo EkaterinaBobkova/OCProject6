@@ -1,3 +1,5 @@
+
+//MULTER - gestion des fichiers images //
 const multer = require('multer');
 
 const MIME_TYPES = {
