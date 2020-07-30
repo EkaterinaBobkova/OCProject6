@@ -8,5 +8,11 @@ Important information to connect to the application :
 Please add your connection address to MongoDB and key token to the file .env.dist and rename it to .env
 
 
-Run ng serve to connect to the server and start http://localhost:4200/
+From the frontend folder run : npm run start 
+
+From the backend folder run : nodemon server
+
+and go to http://localhost:4200/
+
+Enjoy !
 
