@@ -7,14 +7,15 @@ const helmet = require('helmet');
 const cors = require('cors');
 //prevent injections//
 const sanitizer = require("express-mongo-sanitize");
-
+//environnement variables//
+require('dotenv').config() 
 
 
 const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
 const path = require('path');
 
-mongoose.connect('mongodb+srv://NewUser:tTlVrc8wgzpA2MMh@cluster0-wxfsq.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
