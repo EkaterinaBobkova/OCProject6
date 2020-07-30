@@ -10,7 +10,6 @@ const sanitizer = require("express-mongo-sanitize");
 //environnement variables//
 require('dotenv').config() 
 
-
 const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
 const path = require('path');

@@ -27,7 +27,6 @@ exports.signup = (req, res, next) => {
 
   
 // LOGIN DES UTILISATEURS //
-
 exports.login = (req, res, next) => {
     User.findOne({ email: req.body.email })
       .then(user => {
